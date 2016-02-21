@@ -9,5 +9,5 @@ names = EveryPolitician::Wikidata.wikipedia_xpath(
 ) 
 
 EveryPolitician::Wikidata.scrape_wikidata(names: { sv: names })
-EveryPolitician::Wikidata.notify_rebuilder
+warn EveryPolitician::Wikidata.notify_rebuilder
 
