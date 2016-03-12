@@ -5,6 +5,19 @@ require 'wikidata/fetcher'
 
 data = {}
 
+data[:orig2002] = EveryPolitician::Wikidata.wikipedia_xpath( 
+  url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_2002%E2%80%932006',
+  before: '//span[@id="Ledam.C3.B6ter_som_avg.C3.A5tt"]',
+  xpath: '//table//tr[td]//td[3]//a[not(@class="new")][1]/@title',
+) 
+
+data[:replace2002] = EveryPolitician::Wikidata.wikipedia_xpath( 
+  url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_2002%E2%80%932006',
+  after: '//span[@id="Ledam.C3.B6ter_som_avg.C3.A5tt"]',
+  before: '//span[@id="Noter"]',
+  xpath: '//table//tr[td]//td[3]//a[not(@class="new")][1]/@title',
+) 
+
 data[:orig2006] = EveryPolitician::Wikidata.wikipedia_xpath( 
   url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_2006%E2%80%932010',
   before: '//span[@id="Ledam.C3.B6ter_som_avgick_under_mandatperioden"]',
