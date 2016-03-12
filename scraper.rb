@@ -5,6 +5,24 @@ require 'wikidata/fetcher'
 
 data = {}
 
+data[:orig1994] = EveryPolitician::Wikidata.wikipedia_xpath( 
+  url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_1994%E2%80%931998',
+  before: '//span[@id="Ers.C3.A4ttare"]',
+  xpath: '//table//tr[td]//td[2]//a[not(@class="new")][1]/@title',
+) 
+
+data[:replace1994] = EveryPolitician::Wikidata.wikipedia_xpath( 
+  url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_1994%E2%80%931998',
+  after: '//span[@id="Ers.C3.A4ttare"]',
+  before: '//span[@id="Noter"]',
+  xpath: '//table//tr[td]//td[2]//a[not(@class="new")][1]/@title',
+) 
+
+data[:orig1998] = EveryPolitician::Wikidata.wikipedia_xpath( 
+  url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_1998%E2%80%932002',
+  xpath: '//table[.//th[.="Valkrets"]]//tr[td]//td[3]//a[not(@class="new")][1]/@title',
+) 
+
 data[:orig2002] = EveryPolitician::Wikidata.wikipedia_xpath( 
   url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_2002%E2%80%932006',
   before: '//span[@id="Ledam.C3.B6ter_som_avg.C3.A5tt"]',
