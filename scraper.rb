@@ -78,5 +78,7 @@ data[:replace2014] = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[.//th[.="Ny ledamot"]]//tr[td]//td[position() = last()]//a[not(@class="new")][1]/@title',
 ) 
 
-EveryPolitician::Wikidata.scrape_wikidata(names: { sv: data.values.flatten.uniq })
+extras = %w(Q5950878)
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: extras, names: { sv: data.values.flatten.uniq })
 
