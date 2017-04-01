@@ -78,7 +78,9 @@ data[:replace2014] = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[.//th[.="Ny ledamot"]]//tr[td]//td[position() = last()]//a[not(@class="new")][1]/@title',
 )
 
-extras = %w(Q5950878 Q4952392 Q4949319 Q4967713 Q6255733 Q21567758)
+# has Property: "Riksdagen ID"
+sparq = 'SELECT ?item WHERE { ?item wdt:P1214 ?id . }'
+ids = EveryPolitician::Wikidata.sparql(sparq)
 
-EveryPolitician::Wikidata.scrape_wikidata(ids: extras, names: { sv: data.values.flatten.uniq })
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { sv: data.values.flatten.uniq })
 
