@@ -7,7 +7,7 @@ data = {}
 
 data[:orig1991] = EveryPolitician::Wikidata.wikipedia_xpath(
   url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_1991%E2%80%931994',
-  xpath: '//table[.//th[.="Valkrets"]]//tr[td]//td[1]//a[not(@class="new")][1]/@title',
+  xpath: '//table[.//*[contains(.,"Valkrets")]]//tr[td]//td[1]//a[not(@class="new")][1]/@title',
 )
 
 data[:orig1994] = EveryPolitician::Wikidata.wikipedia_xpath(
@@ -25,7 +25,7 @@ data[:replace1994] = EveryPolitician::Wikidata.wikipedia_xpath(
 
 data[:orig1998] = EveryPolitician::Wikidata.wikipedia_xpath(
   url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_1998%E2%80%932002',
-  xpath: '//table[.//th[.="Valkrets"]]//tr[td]//td[3]//a[not(@class="new")][1]/@title',
+  xpath: '//table[.//*[contains(.,"Valkrets")]]//tr[td]//td[3]//a[not(@class="new")][1]/@title',
 )
 
 data[:orig2002] = EveryPolitician::Wikidata.wikipedia_xpath(
