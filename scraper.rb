@@ -82,5 +82,5 @@ data[:replace2014] = EveryPolitician::Wikidata.wikipedia_xpath(
 sparq = 'SELECT ?item WHERE { ?item wdt:P1214 ?id . }'
 ids = EveryPolitician::Wikidata.sparql(sparq)
 
-EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { sv: data.values.flatten.uniq })
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { sv: data.values.flatten.uniq }, batch_size: 250)
 
