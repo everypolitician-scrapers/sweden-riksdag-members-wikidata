@@ -78,6 +78,11 @@ data[:replace2014] = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[.//th[.="Ny ledamot"]]//tr[td]//td[position() = last()]//a[not(@class="new")][1]/@title',
 )
 
+data[:orig2018] = EveryPolitician::Wikidata.wikipedia_xpath(
+  url: 'https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_ledam%C3%B6ter_av_Sveriges_riksdag_2018%E2%80%932022',
+  xpath: '//table[.//th[.="Plats"]]//tr[td]//td[2]//a[not(@class="new")][1]/@title',
+)
+
 # has Property: "Riksdagen ID"
 sparq = 'SELECT ?item WHERE { ?item wdt:P1214 ?id . }'
 ids = EveryPolitician::Wikidata.sparql(sparq)
